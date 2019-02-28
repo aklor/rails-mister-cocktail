@@ -1,0 +1,9 @@
+<h1><span id="banner-text"></span></h1>
+<br><br>
+<div class="cocktail-container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <%= render "./components/cocktail-card", cocktail: cocktail %>
+    <% end %>
+  </div>
+</div>

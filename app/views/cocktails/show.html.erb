@@ -1,0 +1,30 @@
+<%= link_to cocktails_path do %>
+  <i class="fas fa-caret-square-left"> back to all</i>
+<% end %>
+<h1><%= @cocktail.name %></h1>
+<% if @cocktail.picture.file %>
+  <div class="cocktail-picture text-center">
+  <%= cl_image_tag @cocktail.picture, height: 300, width: 400, crop: :fill %>
+</div>
+<br>
+<% end %>
+<ul class="doses-list">
+  <% @doses.each do |dose| %>
+  <li><%= dose.description %> of <%= dose.ingredient.name %></li>
+  <% end %>
+</ul>
+<br><br><br>
+
+<h3>Add dose</h3>
+<%= render "./components/dose-form", dose: @dose %>
+
+<h3>Reviews</h3>
+<ul class="review_card_container">
+  <% @reviews.each do |review| %>
+      <li> <%= render "./components/review-card", review: review %> </li>
+  <% end %>
+</ul>
+<br><br><br>
+
+<h3>Add review</h3>
+<%= render "./components/review-form", dose: @dose %>
